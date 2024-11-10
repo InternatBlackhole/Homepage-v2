@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Foundation Titles';
+    src: url('/fonts/FoundationTitlesHand.woff2') format('woff2'),
+        url('/fonts/FoundationTitlesHand.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Protomolecule';
+    src: url('/fonts/Protomolecule.woff2') format('woff2'),
+        url('/fonts/Protomolecule.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
