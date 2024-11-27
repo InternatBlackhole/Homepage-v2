@@ -1,0 +1,26 @@
+
+services:
+  mongo:
+    image: mongo:latest
+    networks:
+      - internal
+  
+  dev:
+    image: "node:latest"
+    working_dir: /srv/app
+    ports:
+      - "5173:${INTERNAL_PORT:-5000}"
+    depends_on:
+      - mongo
+    command: npm run dev -- --port ${INTERNAL_PORT:-5000} --host dev
+    environment:
+      - MONGO_CONN_STR=mongodb://mongo:27017
+    networks:
+      - internal
+      - default
+    volumes:
+      - .:/srv/app
+
+networks:
+  internal:
+  default:

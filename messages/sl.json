@@ -1,4 +1,16 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "hello_world": "Hello, {name} from sl!"
+  "still_novel_termite_drip": "Odjava",
+  "new_teary_gecko_roam": "Prijava",
+  "top_fun_racoon_pat": "Zdravo",
+  "mad_cozy_chipmunk_pick": "osebna spletna stran",
+  "sunny_neat_slug_dare": "Razvijalec, študent na",
+  "grand_vexed_fox_link": "Projekti",
+  "fair_still_polecat_pave": "Več projektov",
+  "vexed_free_felix_hunt": "Klikni tukaj, da vidiš še več projektov",
+  "witty_aloof_kudu_compose": "Napaka",
+  "away_wacky_bobcat_beam": "Prišlo je do napake",
+  "known_jolly_stingray_reside": "Projekti",
+  "alive_civil_squirrel_slide": "Projekt {project} ni bil najden",
+  "every_patchy_alligator_feast": "Projekti"
 }

@@ -1,4 +1,4 @@
-import { cubicOut,cubicIn } from 'svelte/easing';
+import { cubicOut,cubicIn, cubicInOut } from 'svelte/easing';
 
 export function growOut(
     node: HTMLElement,
@@ -19,12 +19,14 @@ export function growOut(
     return {
         delay: params.delay || 0,
         duration: params.duration || 1000,
-        easing: params.easing || cubicOut,
+        easing: params.easing || cubicInOut,
         css: (t: number, u: number) => `
-            opacity: ${direction === 'in' ? u : t};
-            width: ${Math.round(elemWidth * t)}px;
+            /*opacity: ${direction === 'in' ? u : t};*/
+            /*width: ${Math.round(elemWidth * t)}px;*/
             height: ${Math.round(elemHeight * t)}px;
             padding: ${elemPaddings.map((padding) => Math.round(padding * t)).join('px ')};
+            overflow-y: clip;
+            content: '';
         `
     };
 }

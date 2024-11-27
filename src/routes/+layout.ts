@@ -19,6 +19,18 @@ export async function load(): Promise<{ projects: Project[] }> {
             }
         },
         {
+            name: 'Homepage',
+            description: 'The homepage you are currently on. Made with SvelteKit.',
+            html_url: 'https://github.com/InternatBlackhole/Homepage-v2',
+            languages: {
+                TypeScript: 37.6,
+                Svelte: 44.4,
+                Tailwind: 5.7,
+                JavaScript: 8.1,
+                HTML: 4.2
+            }
+        },
+        {
             name: 'Raft with chain replication',
             description: 'Chain replication with Raft consensus algorithm in Go.',
             html_url: 'https://github.com/InternatBlackhole/raft-with-chain-replication',
@@ -46,16 +58,8 @@ export async function load(): Promise<{ projects: Project[] }> {
                 Makefile: 1.5
             }
         },
-        {
-            name: 'test',
-            description: 'Test project',
-            html_url: '#',
-            languages: {
-                'C++': 77,
-                Assembly: 21.5,
-                Makefile: 1.5
-            }
-        }
     ]
 }
 }
+
+export const prerender = true;

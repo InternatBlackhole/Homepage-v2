@@ -3,7 +3,7 @@
 
     interface FluidGridProps {
         data: { items: Item[] };
-        max_display: number;
+        max_display?: number;
         project_snippet: Snippet<[Item]>;
         more?: Snippet;
 		class: string | undefined;
@@ -11,7 +11,7 @@
 
 	const {
 		data,
-		max_display,
+		max_display = data.items?.length || 0,
 		project_snippet,
 		more,
 		class: clazz = "",

@@ -3,8 +3,7 @@
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import type { Project } from '$lib/components/ProjectCard.svelte';
 	import FluidGrid from '$lib/components/FluidGrid.svelte';
-	import { onMount } from 'svelte';
-	import { fromEvent, debounceTime } from 'rxjs';
+	import * as m from '$lib/paraglide/messages';
 
 	let visible = $state(false);
 	let startTyping = $state(false);
@@ -21,22 +20,22 @@
 	});
 
 	const more_proj: Project = {
-		name: 'More projects',
-		description: 'Click to check out all of my projects here!',
+		name: m.fair_still_polecat_pave(),
+		description: m.vexed_free_felix_hunt(),
 		html_url: '/projects',
 		languages: {}
 	};
 </script>
 
-<div id="title" class="tk-page h-screen w-screen">
+<div id="title" class="h-screen w-screen">
 	{#if visible}
-		<div class="m-auto h-full w-2/3">
-			<div class="m-auto flex h-full flex-col items-center justify-center gap-y-4">
-				<h1
-					class="w-full text-clip border-b-2 border-t-2 border-black pb-12 pt-12 text-center font-foundation text-7xl"
-					transition:growOut={{ duration: 1000 }}
-					onintroend={() => (startTyping = true)}
-				>
+		<div class="md:m-auto h-full md:w-2/3 mx-1 flex flex-row">
+			<div
+				class="w-full m-auto flex flex-col items-center justify-center gap-y-4 border-b-2 border-t-2 border-black pb-12 pt-12"
+				transition:growOut={{ duration: 750, }}
+				onintrostart={() => setTimeout(() => startTyping = true, 500)}
+			>
+				<h1 class="w-full text-clip text-center font-foundation text-7xl">
 					{#if startTyping}
 						<span transition:typewriter={{ speed: 2 }}>Timotej Kroflic</span>
 					{/if}
@@ -82,7 +81,7 @@
 							transition:typewriter={{ speed: 2 }}
 							onintroend={() => (startLink = true)}
 						>
-							Developer, Student at&nbsp;
+							{m.sunny_neat_slug_dare()}&nbsp;
 						</span>
 
 						{#if startLink}
@@ -104,7 +103,7 @@
 
 <div id="projects" class="tk-page h-screen w-screen">
 	<div class="m-auto h-full pt-[25vh]">
-		<h1 class="pb-3 text-center font-foundation text-7xl">Projects</h1>
+		<h1 class="pb-3 text-center font-foundation text-7xl">{m.grand_vexed_fox_link()}</h1>
 		<FluidGrid max_display={5} data={{ items: data.projects }} class="w-full md:m-auto md:w-2/3">
 			{#snippet project_snippet(project)}
 				<ProjectCard {project} class="rounded-lg border-2 p-3" />
@@ -116,5 +115,3 @@
 		</FluidGrid>
 	</div>
 </div>
-
-

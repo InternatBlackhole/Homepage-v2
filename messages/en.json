@@ -1,4 +1,16 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "hello_world": "Hello, {name} from en!"
+  "still_novel_termite_drip": "Logout",
+  "new_teary_gecko_roam": "Login",
+  "top_fun_racoon_pat": "Hello",
+  "mad_cozy_chipmunk_pick": "personal website",
+  "sunny_neat_slug_dare": "Developer, Student at",
+  "grand_vexed_fox_link": "Projects",
+  "fair_still_polecat_pave": "More projects",
+  "vexed_free_felix_hunt": "Click to check out all of my projects here!",
+  "witty_aloof_kudu_compose": "Error",
+  "away_wacky_bobcat_beam": "An error occurred",
+  "known_jolly_stingray_reside": "Projects",
+  "alive_civil_squirrel_slide": "Project {project} not found",
+  "every_patchy_alligator_feast": "Projects"
 }

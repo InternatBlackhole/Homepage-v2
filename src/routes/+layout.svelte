@@ -4,6 +4,10 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { fromEvent, debounceTime } from 'rxjs';
+	import { slide } from 'svelte/transition';
+	import NavBar from './NavBar.svelte';
+	import { page } from '$app/stores';
+	import * as m from '$lib/paraglide/messages';
 
 	let { children } = $props();
 
@@ -16,7 +20,7 @@
 		passesDone: number;
 	}
 
-	const doPasses = 4;
+	const doPasses = 3;
 
 	let canvas: HTMLCanvasElement;
 	let context: CanvasRenderingContext2D | null;
@@ -48,7 +52,7 @@
 			if (item.passesDone >= doPasses) return;
 			ctx.moveTo(item.x, item.y);
 			let xoff = Math.random() * 10 - 5; // -10 to 10
-			let yoff = Math.random() * 10; // just increase
+			let yoff = Math.random() * 15; // just increase
 			ctx.strokeStyle = item.color;
 			item.y += yoff;
 			if (item.y > canvas.height) {
@@ -58,9 +62,9 @@
 				return;
 			}
 
-			if(item.x + xoff < item.leftLimit || item.x + xoff > item.rightLimit) {
+			if (item.x + xoff < item.leftLimit || item.x + xoff > item.rightLimit) {
 				xoff *= -1;
-			};
+			}
 
 			item.x += xoff;
 			ctx.lineTo(item.x, item.y);
@@ -87,17 +91,33 @@
 		});
 		draw(0);
 	});
+
+	/*let navVisible = $state(false);
+
+	onMount(() => {
+		return fromEvent(window, 'scroll')
+			.pipe(debounceTime(10))
+			.subscribe(() => {
+				navVisible = (window.scrollY >= (window.visualViewport?.height || 1) / 100 * 10) || false; //5vh
+			}).unsubscribe;
+	});*/
 </script>
 
 <svelte:head>
 	<title>Timotej Kroflic</title>
-	<meta name="description" content="Timotej Kroflic's personal website" />
-	<meta name="keywords" content="Timotej Kroflic, personal website" />
-	<meta name="author" content="Timotej Kroflic" />
+	<meta name="description" content="Timotej Kroflič's {m.mad_cozy_chipmunk_pick()}" />
+	<meta name="keywords" content="Timotej Kroflič, {m.mad_cozy_chipmunk_pick()}" />
+	<meta name="author" content="Timotej Kroflič" />
 </svelte:head>
 
 <ParaglideJS {i18n}>
-	{@render children()}
-	<canvas bind:this={canvas} id="canvas" class="fixed left-0 top-0 -z-50 h-screen w-screen opacity-40"
-	></canvas>
+	<div class="w-screen">
+		<!--<NavBar entries={[
+			{ name: m.every_patchy_alligator_feast(), href: '/projects' },
+		]} loggedInUser={null} />-->
+		{@render children()}
+	</div>
 </ParaglideJS>
+
+<canvas bind:this={canvas} id="canvas" class="fixed left-0 top-0 -z-50 h-screen w-screen opacity-40"
+></canvas>
